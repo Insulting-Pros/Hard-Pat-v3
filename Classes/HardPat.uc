@@ -488,6 +488,11 @@ Ignores TakeDamage;
 
 state FireMissile
 {
+    // Pat fires rocket on AnimEnd() - prevent hit animations from triggering it
+    function bool HitCanInterruptAction() {
+        return false;
+    }
+
     function RangedAttack(Actor A)
     {
         if (MissilesLeft > 1)
